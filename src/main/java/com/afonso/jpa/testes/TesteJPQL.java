@@ -6,7 +6,7 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
-import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import com.afonso.jpa.Conta;
 
@@ -18,9 +18,9 @@ public class TesteJPQL {
         Conta conta = new Conta();
         conta.setId(5L);
 
-        String jpql = "SELECT c FROM Conta c where c.id = :pConta";
+        String jpql = "SELECT c FROM Conta c where c.id <> :pConta ORDER BY c.agencia";
 
-        Query query = em.createQuery(jpql);
+        TypedQuery<Conta> query = em.createQuery(jpql, Conta.class);
 
         query.setParameter("pConta", 5L);
 
