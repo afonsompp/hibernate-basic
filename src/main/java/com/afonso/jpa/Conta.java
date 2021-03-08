@@ -18,15 +18,17 @@ public class Conta {
     
     private String titular;
 
+    private double saldo;
     public Conta() {
 
     }
 
-    public Conta(Long id, String agencia, String conta, String titular) {
+    public Conta(Long id, String agencia, String conta, String titular, double saldo) {
         this.id = id;
         this.agencia = agencia;
         this.conta = conta;
         this.titular = titular;
+        this.saldo = saldo;
     }
 
     public Long getId() {
@@ -43,6 +45,10 @@ public class Conta {
 
     public String getTitular() {
         return titular;
+    }
+
+    public double getSaldo() {
+        return saldo;
     }
 
 }
