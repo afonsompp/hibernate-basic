@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Conta {
@@ -16,14 +17,15 @@ public class Conta {
     
     private String conta;
     
-    private String titular;
+    @ManyToOne
+    private Cliente titular;
 
     private double saldo;
     public Conta() {
 
     }
 
-    public Conta(Long id, String agencia, String conta, String titular, double saldo) {
+    public Conta(Long id, String agencia, String conta, Cliente titular, double saldo) {
         this.id = id;
         this.agencia = agencia;
         this.conta = conta;
@@ -43,7 +45,7 @@ public class Conta {
         return conta;
     }
 
-    public String getTitular() {
+    public Cliente getTitular() {
         return titular;
     }
 
