@@ -4,6 +4,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 @Entity
 public class Cliente {
@@ -14,11 +16,23 @@ public class Cliente {
     private String email;
     private String cpf;
 
+    @OneToOne
+    @JoinColumn(unique = true)
+    private Endereco endereco;
+
     public Cliente(Long id, String nome, String email, String cpf) {
         this.id = id;
         this.nome = nome;
         this.email = email;
         this.cpf = cpf;
+    }
+
+    public Cliente(Long id, String nome, String email, String cpf, Endereco endereco) {
+        this.id = id;
+        this.nome = nome;
+        this.email = email;
+        this.cpf = cpf;
+        this.endereco = endereco;
     }
 
     public Long getId() {
