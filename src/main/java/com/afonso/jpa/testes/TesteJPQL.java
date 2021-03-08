@@ -9,6 +9,7 @@ import javax.persistence.Persistence;
 import javax.persistence.TypedQuery;
 
 import com.afonso.jpa.Conta;
+import com.afonso.jpa.Movimentacao;
 
 public class TesteJPQL {
     public static void main(String[] args) {
@@ -18,16 +19,17 @@ public class TesteJPQL {
         Conta conta = new Conta();
         conta.setId(5L);
 
-        String jpql = "SELECT c FROM Conta c where c.id <> :pConta ORDER BY c.agencia";
+        String jpql = "SELECT m FROM Movimentacao m INNER JOIN m.conta c INNER JOIN c.titular";
 
-        TypedQuery<Conta> query = em.createQuery(jpql, Conta.class);
+        TypedQuery<Movimentacao> query = em.createQuery(jpql, Movimentacao.class);
 
-        query.setParameter("pConta", 5L);
 
-        List<Conta> contas =  new ArrayList<>(query.getResultList());
+        List<Movimentacao> contas =  new ArrayList<>(query.getResultList());
 
-        for (Conta conta2 : contas) {
-            System.out.println(conta2.getConta());
+        for (var c : contas) {
+            System.out.println("----------------------------------");
+            System.out.println(c.getConta().getTitular().getEndereco().getRua());
+            System.out.println("----------------------------------");
         }
          
     }

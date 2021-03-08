@@ -27,6 +27,10 @@ public class Cliente {
         this.cpf = cpf;
     }
 
+
+    public Cliente() {
+    }
+
     public Cliente(Long id, String nome, String email, String cpf, Endereco endereco) {
         this.id = id;
         this.nome = nome;
@@ -65,6 +69,9 @@ public class Cliente {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+    public Endereco getEndereco() {
+        return endereco;
     }
 
 }

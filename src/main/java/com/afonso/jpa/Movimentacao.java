@@ -34,6 +34,8 @@ public class Movimentacao {
     @ManyToMany
     List<Categoria> categorias;
 
+    public Movimentacao(){}
+
     public Movimentacao(Long id, BigDecimal valor, EnumTipo tipoMovimentacao, Instant data, String descricao,
             Conta conta, List<Categoria> categorias) {
         this.id = id;
