@@ -28,7 +28,9 @@ public class TesteMovimentacao {
                 EnumTipo.DEPOSITO, Instant.now(), "bla bla bla", conta, cat);
 
         em.getTransaction().begin();
+        em.persist(cli);
         em.persist(conta);
+        em.persist(c);
         em.persist(movimentacao);
         em.getTransaction().commit();
 
