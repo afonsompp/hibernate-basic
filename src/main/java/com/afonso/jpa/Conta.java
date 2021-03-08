@@ -14,13 +14,14 @@ public class Conta {
     private Long id;
 
     private String agencia;
-    
+
     private String conta;
-    
+
     @ManyToOne
     private Cliente titular;
 
     private double saldo;
+
     public Conta() {
 
     }
@@ -35,6 +36,10 @@ public class Conta {
 
     public Long getId() {
         return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getAgencia() {
@@ -52,12 +57,9 @@ public class Conta {
     public double getSaldo() {
         return saldo;
     }
-    
+
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }
-
-    
-    
 
 }
