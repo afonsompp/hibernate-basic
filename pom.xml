@@ -6,7 +6,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>2.4.3</version>
-		<relativePath/>	
+		<relativePath/>
 		<!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.afonso</groupId>
@@ -24,6 +24,10 @@
 			<version>5.4.10.Final</version>
 			<type>pom</type>
 		</dependency>
-
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<version>8.0.18</version>
+		</dependency>
 	</dependencies>
 </project>
